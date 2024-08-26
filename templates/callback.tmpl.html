@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>OIDC Client Demo</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <style type="text/css">
+    body {
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+
+  <script type="text/javascript">
+    localStorage.setItem("oidc.token", "{{ .Token }}");
+    localStorage.setItem("oidc.claims", "{{ .Claims }}");
+
+    // Navigate back to the index page
+    window.addEventListener("load", function() {
+      window.location = `//${window.location.host}/`;
+    });
+  </script>
+</head>
+<body>
+  <h1>OAuth2 Callback</h1>
+  <p>Login succeeded. <a href="/">Return home</a></p>
+</body>
+</html>

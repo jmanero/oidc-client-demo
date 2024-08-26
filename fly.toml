@@ -1,0 +1,22 @@
+app = "bold-fog-4533"
+
+primary_region = "iad"
+kill_signal = "SIGTERM"
+
+[build]
+  dockerfile = "Containerfile"
+
+[env]
+  DEMO_OIDC_PROVIDER = "https://locker-0001.fly.dev/v1/identity/oidc/provider/default"
+  DEMO_OAUTH2_APPID  = "iiJq58IMZRSpmhO3ALwsBuUREb0Lpgkf"
+  DEMO_ENDPOINT_ADDR = "https://bold-fog-4533.fly.dev"
+
+[[services]]
+  internal_port = 9867
+  protocol = "tcp"
+
+  auto_stop_machines = "off"
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
